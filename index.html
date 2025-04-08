@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Class Scheduler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Class Scheduler</h1>
+        
+        <div class="scheduler-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="course">Course:</label>
+                    <select id="course" required>
+                        <option value="" disabled selected>Select Course</option>
+                        <option value="Geometry of Two
+Dimensions">Geometry of Two
+Dimensions</option>
+                        <option value="Vector Analysis">Vector Analysis</option>
+                        <option value="Integral Calculus">Integral Calculus</option>
+                        <option value="Linear Algebra">Linear Algebra</option>
+                        <option value="Electricity and Magnetism">Electricity and Magnetism</option>
+                        <option value="Theory of Probability">Theory of Probability</option>
+                        <option value="Practical (Using Mathematica)">Practical (Using Mathematica)</option>
+                        <option value="Functional English">Functional English</option>
+                    </select>
+                    <span class="validation-message" id="course-validation"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sir">Instructor:</label>
+                    <select id="sir" required>
+                        <option value="" disabled selected>Select Instructor</option>
+                        <option value="Abdul haque sir">Abdul haque sir</option>
+                        <option value="Zahurul islam sir">Zahurul islam sir</option>
+                        <option value="Hossain Ali sir">Hossain Ali sir</option>
+                        <option value="Hamidul Islam sir">Hamidul Islam sir</option>
+                        <option value="Saroz sir">Saroz sir</option>
+                        <option value="Razzak sir">Razzak sir</option>
+                        <option value="Lucy mam">Lucy mam</option>
+                    </select>
+                    <span class="validation-message" id="sir-validation"></span>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="room">Room:</label>
+                    <select id="room" required>
+                        <option value="" disabled selected>Select Room</option>
+                        <option value="101">417</option>
+                        <option value="102">424</option>
+                        <option value="103">334</option>
+                        <option value="201">112</option>
+                        <option value="202">129</option>
+                    </select>
+                    <span class="validation-message" id="room-validation"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="building">Building:</label>
+                    <select id="building" required>
+                        <option value="1st Science Building"> 1st Science Building</option>
+                        <option value="2nd Science Building"> 2nd Science Building</option>
+                        <option value="3rd Science Building"> 3rd Science Building</option>
+                        <option value="4th Science Building"> 4th Science Building</option>
+                    </select>
+                    <span class="validation-message" id="building-validation"></span>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" required>
+                    <span class="validation-message" id="date-validation"></span>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="start-time">Start Time:</label>
+                    <input type="time" id="start-time" required>
+                    <span class="validation-message" id="start-time-validation"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="end-time">End Time:</label>
+                    <input type="time" id="end-time" required>
+                    <span class="validation-message" id="end-time-validation"></span>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" id="add-class" class="primary-btn">Add Class</button>
+                <button type="button" id="reset-form" class="secondary-btn">Reset Form</button>
+                <button type="button" id="update-class" class="primary-btn" style="display: none;">Update Class</button>
+                <button type="button" id="cancel-edit" class="secondary-btn" style="display: none;">Cancel</button>
+            </div>
+            <div id="form-feedback" class="form-feedback"></div>
+        </div>
+        
+        <div class="schedule-container">
+            <h2>Class Schedule</h2>
+            <div class="schedule-actions">
+                <button id="copy-schedule" class="secondary-btn">Copy Schedule</button>
+                <button id="clear-all" class="danger-btn">Clear All</button>
+            </div>
+            <div id="schedule-list" class="schedule-list"></div>
+            <div id="formatted-output" class="formatted-output">
+                <h3>Formatted Output</h3>
+                <pre id="output-text"></pre>
+            </div>
+        </div>
+    </div>
+    
+    <div id="success-notification" class="notification">
+        <span id="notification-message"></span>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
