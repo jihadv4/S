@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
       output += "Tomorrow's class schedule:\n\n"
 
       dateClasses.forEach((cls) => {
-        output += `⭕️${cls.course}--(${formatTime(cls.startTime)}-${formatTime(cls.endTime)})--${cls.sir}--(${cls.room}-${cls.building})\n`
+        output += `${cls.course}--(${formatTime(cls.startTime)}-${formatTime(cls.endTime)})--${cls.sir}--(${cls.room}-${cls.building})\n\n`
       })
 
       output += "\n\n"
