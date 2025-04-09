@@ -130,13 +130,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const formattedDate = formatDate(date)
 
       output += `${formattedDate}\n`
-      output += "Tomorrow's class schedule:\n"
+      output += "Tomorrow's class schedule:\n\n"
 
       dateClasses.forEach((cls) => {
-        output += `${cls.course}--(${formatTime(cls.startTime)}-${formatTime(cls.endTime)})--${cls.sir}--(${cls.room}-${cls.building})\n`
+        output += `⭕️${cls.course}--(${formatTime(cls.startTime)}-${formatTime(cls.endTime)})--${cls.sir}--(${cls.room}-${cls.building})\n`
       })
 
-      output += "\n"
+      output += "\n\n"
     }
 
     outputText.textContent = output.trim()
