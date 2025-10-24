@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Scheduler Text Formatter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1>Class Scheduler</h1>
+                <p>Manage your weekly class schedule with ease</p>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <div class="header-actions">
+                    <!-- Changed from Export to Copy -->
+                    <button id="copyBtn" class="btn btn-primary">
+                        <span></span> Copy Schedule
+                    </button>
+                    <button id="resetBtn" class="btn btn-secondary">
+                        <span></span> Reset to Default
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="tabs desktop-tabs">
+                <button class="tab-btn active" data-day="Sunday">Sunday</button>
+                <button class="tab-btn" data-day="Monday">Monday</button>
+                <button class="tab-btn" data-day="Tuesday">Tuesday</button>
+                <button class="tab-btn" data-day="Wednesday">Wednesday</button>
+                <button class="tab-btn" data-day="Thursday">Thursday</button>
+                <button class="tab-btn" data-day="Friday">Friday</button>
+                <button class="tab-btn" data-day="Saturday">Saturday</button>
+            </div>
+            <div class="mobile-day-select">
+                <select id="daySelect" class="day-dropdown">
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                </select>
+            </div>
+
+            <div class="content-area">
+                <div class="form-section">
+                    <h2 id="formTitle">Add Class</h2>
+                    <form id="classForm">
+                        <div class="form-group">
+                            <label for="course">Course Name</label>
+                            <select id="course" required>
+                                <option value="">Select a course...</option>
+                                <option value="AMAT2101">AMAT2101 - Advanced Calculus</option>
+                                <option value="AMAT2102">AMAT2102 - Geometry of Three Dimensions</option>
+                                <option value="AMAT2103">AMAT2103 - Ordinary Differential Equations with Modeling</option>
+                                <option value="AMAT2104">AMAT2104 - Tensor Analysis</option>
+                                <option value="PHYS2111">PHYS2111 - Heat and Thermodynamics</option>
+                                <option value="STAT2112">STAT2112 - Sample Survey and Demography</option>
+                                <option value="AMAT2120">AMAT2120 - 	Practical (Using MATLAB)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="instructor">Instructor</label>
+                            <select id="instructor" required>
+                                <option value="">Select an instructor...</option>
+                                <option value="Asaduzzaman Khan sir">Asaduzzaman Khan sir</option>
+                                <option value="Md Abdul Haque sir">Md Abdul Haque sir</option>
+                                <option value="Abu Bakr PK sir">Abu Bakr PK sir</option>
+                                <option value="Ashik Iqbal sir">Ashik Iqbal sir</option>
+                                <option value="Hadiul Kobir sir">Hadiul Kobir sir</option>
+                                <option value="Ismail Hossain sir">Ismail Hossain sir</option>
+                                <option value="Abdur Razzak Sarkar sir">Abdur Razzak Sarkar sir</option>
+                                <option value="Prof. Moore">Prof. Moore</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="room">Room</label>
+                            <select id="room" required>
+                                <option value="">Select a room...</option>
+                                <option value="417">417</option>
+                                <option value="334">334</option>
+                                <option value="335">335</option>
+                                <option value="112">112</option>
+                                <option value="307">307</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="building">Building</label>
+                            <select id="building" required>
+                                <option value="">Select a building...</option>
+                                <option value="4th Science Building">4th Science Building</option>
+                                <option value="1st Science Building">1st Science Building</option>
+                                <option value="3rd Science Building">3rd Science Building</option>
+                                <option value="2nd Science Building">2nd Science Building</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="startTime">Start Time</label>
+                                <input type="time" id="startTime" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="endTime">End Time</label>
+                                <input type="time" id="endTime" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Date (Optional)</label>
+                            <input type="date" id="date">
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="tempOnly">
+                                <span>Temporary (Today Only)</span>
+                            </label>
+                        </div>
+
+                        <!-- Added hidden field to track editing -->
+                        <input type="hidden" id="editingId">
+
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Add Class</button>
+                        <!-- Added cancel button for edit mode -->
+                        <button type="button" class="btn btn-secondary" id="cancelBtn" style="display: none;">Cancel</button>
+                    </form>
+                </div>
+
+                <div class="schedule-section">
+                    <h2 id="dayTitle">Sunday</h2>
+                    <div id="classList" class="class-list">
+                        <p class="empty-message">No classes scheduled</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <footer>
+        <p>Made by CJ</p>
+    </footer>
+</body>
+</html>
